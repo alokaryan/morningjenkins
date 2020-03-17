@@ -1,7 +1,7 @@
 ---
 - name: create a user
   hosts: client1.example.com
-  remote_user: root
+  
   tasks:
     - name: create a user hero
       user:
