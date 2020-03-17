@@ -1,0 +1,10 @@
+---
+- name: create a user
+  hosts: client1.example.com
+  remote_user: root
+  tasks:
+        - name: create user hero
+          user:
+                name: hero
+                state: present
+
