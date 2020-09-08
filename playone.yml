@@ -30,7 +30,7 @@
       firewalld:
         service: http
         immediate: yes
-        enable: true
+        state: enabled
         permanent: yes
         
         
