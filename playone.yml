@@ -7,4 +7,30 @@
       user:
         name: coronago
         state: present
+    - name: install vsftpd
+      yum:
+        name: "{{ item }}"
+        state: latest
+      loop:
+        - vsftpd
+        - httpd
+    - name: start vsftpd service
+      service:
+        name: "{{ item }}"
+        state: started
+        enabled: true
+      loop:
+        - vsftpd
+        - httpd
+    - name: copy index.html file
+      copy:
+        dest: /var/www/html/index.html
+        content: "<h1>This is webserver using ansible, git and jenkins</h1>"
+    - name: allow http in firewall
+      firewalld:
+        service: http
+        immediate: yes
+        enable: true
+        permanent: yes
+        
         
